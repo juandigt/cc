@@ -53,7 +53,7 @@ jobs:
       - run: ls -la
       - run:
           name: Deploy to S3
-          command: aws s3 sync static s3://cc-bucket/assets/ --delete
+          command: aws s3 sync build/static s3://cc-bucket/assets/ --delete
 
 workflows:
   version: 2
