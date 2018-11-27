@@ -27,7 +27,6 @@ jobs:
           - v1-dependencies-
 
       - run: yarn install
-
       - save_cache:
           paths:
             - node_modules
@@ -35,5 +34,6 @@ jobs:
         
       # run tests!
       - run: yarn test
+      - run: yarn build
 
 
