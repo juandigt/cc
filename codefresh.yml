@@ -8,15 +8,11 @@ steps:
       - yarn build
       - mv build /codefresh/volume/
 
-  other:
-    image: node:8-alpine
-    commands:
-      - ls -la /codefresh/volume/
-  # Copy to S3:
-  #   image: 'codefresh/s3copy'
-  #   environment:
-  #     - SOURCE="path/to/somefile"
-  #     - DESTINATION="s3://path-to-s3-bucket"
+  Copy to S3:
+    image: 'codefresh/s3copy'
+    environment:
+      - SOURCE="/codefresh/volume/build/static"
+      - DESTINATION="s3://jorge-cc-test/assets"
   # build_step:
   #   type: build
   #   dockerfile: Dockerfile
