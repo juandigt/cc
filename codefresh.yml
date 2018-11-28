@@ -11,11 +11,12 @@ steps:
       - mv build /codefresh/volume/$CF_BUILD_ID
       - ls /codefresh/volume/$CF_BUILD_ID
 
-  Copy to S3:
-    image: 'codefresh/s3copy'
-    environment:
-      - SOURCE="/codefresh/volume/$CF_BUILD_ID/static"
-      - DESTINATION="s3://jorge-cc-test/assets"
+  push_to_s3:
+    image: 'circleci/python:2.7-jessie'
+    commands:
+      - sudo pip install awscli
+      - aws s3 sync /codefresh/volume/$CF_BUILD_ID/build/static s3://jorge-cc-test/assets
+
   # build_step:
   #   type: build
   #   dockerfile: Dockerfile
