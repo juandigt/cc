@@ -1,17 +1,21 @@
 version: '1.0'
 steps:
+
   build:
     image: node:8-alpine
     commands:
+      - cf_export BUILD_DIR=/codefresh/volume/$CF_BUILD_ID
+      - mkdir $BUILD_DIR
       - yarn install
       - CI=true yarn test
       - yarn build
-      - mv build /codefresh/volume/
+      - mv build $BUILD_DIR
+      - ls $BUILD_DIR
 
   Copy to S3:
     image: 'codefresh/s3copy'
     environment:
-      - SOURCE="/codefresh/volume/build/static"
+      - SOURCE="$BUILD_DIR/static"
       - DESTINATION="s3://jorge-cc-test/assets"
   # build_step:
   #   type: build
