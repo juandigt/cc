@@ -52,7 +52,7 @@ jobs:
           command: sudo pip install awscli
       - run:
           name: Deploy to S3
-          command: aws s3 sync build/static s3://cc-bucket/assets/ --delete
+          command: aws s3 sync build/static s3://jorge-cc-test/assets/ --delete
 
 workflows:
   version: 2
