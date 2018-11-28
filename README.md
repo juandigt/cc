@@ -1,3 +1,5 @@
+[![Codefresh build status]( https://g.codefresh.io/api/badges/pipeline/juandigt/juandigt%2Fcc%2Fcc?branch=master&key=eyJhbGciOiJIUzI1NiJ9.NWJmZDYzMDAxY2IyNzVhYWZkYWNmMWIx.tOAFkXMjeiakCU3DWSUvkYT1RqIDdK4ctVYhc9vxYjo&type=cf-1)]( https://g.codefresh.io/pipelines/cc/builds?repoOwner=juandigt&repoName=cc&serviceName=juandigt%2Fcc&filter=trigger:build~Build;branch:master;pipeline:5bfd636c6da2236ba66c360f~cc)
+
 [![CircleCI](https://circleci.com/gh/juandigt/cc.svg?style=svg)](https://circleci.com/gh/juandigt/cc)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
