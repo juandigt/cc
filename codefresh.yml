@@ -4,19 +4,17 @@ steps:
   build:
     image: node:8-alpine
     commands:
-      - cf_export BUILD_DIR=/codefresh/volume/$CF_BUILD_ID
-      - echo $BUILD_DIR
-      - mkdir $BUILD_DIR
+      - mkdir /codefresh/volume/$CF_BUILD_ID
       - yarn install
       - CI=true yarn test
       - yarn build
-      - mv build $BUILD_DIR
-      - ls $BUILD_DIR
+      - mv build /codefresh/volume/$CF_BUILD_ID
+      - ls /codefresh/volume/$CF_BUILD_ID
 
   Copy to S3:
     image: 'codefresh/s3copy'
     environment:
-      - SOURCE="$BUILD_DIR/static"
+      - SOURCE="/codefresh/volume/$CF_BUILD_ID/static"
       - DESTINATION="s3://jorge-cc-test/assets"
   # build_step:
   #   type: build
