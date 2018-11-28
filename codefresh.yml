@@ -5,6 +5,7 @@ steps:
     image: node:8-alpine
     commands:
       - cf_export BUILD_DIR=/codefresh/volume/$CF_BUILD_ID
+      - echo $BUILD_DIR
       - mkdir $BUILD_DIR
       - yarn install
       - CI=true yarn test
